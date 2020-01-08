@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+# check if brew is executable
+if ! [ -x "$(command -v brew)" ]; then
+  echo 'Error: brew is not installed' >&2
+  exit 1
+fi
+
+# karabiner
+if ! [ -x "$(command -v goku)" ]; then
+  brew install yqrashawn/goku/goku > /dev/null
+fi
+ln -sf $PWD/karabiner/karabiner.edn ~/.config/karabiner.edn
+goku > /dev/null
