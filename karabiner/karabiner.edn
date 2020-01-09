@@ -1,3 +1,5 @@
+; https://github.com/yqrashawn/GokuRakuJoudo
+
 {
 
 ; :profiles {
@@ -11,10 +13,12 @@
 
 :templates {
   :open "open \"%s\""
+  :as "osascript ~/.applescript/%s.applescript"
 }
 
 :simlayers {
   :o-mode {:key :o}
+  :f-mode {:key :f}
   :semicolon-mode {:key :semicolon}
 }
 
@@ -124,5 +128,10 @@
   {:des "right cmd -> ru layout"
    :rules [
      [:right_gui :right_gui nil {:alone {:input :ru}}]
+   ]}
+
+  {:des "f-mode: firefox"
+   :rules [:f-mode
+    [:s [:as "firefox/new_tab"]]
    ]}
 ]}
