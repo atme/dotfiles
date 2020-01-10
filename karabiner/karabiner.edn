@@ -65,15 +65,15 @@
      [:5 :!T5]
      [:6 :!T6]]}
 
-  {:des "left shift once -> ("
-   :rules [
-     [:##left_shift :left_shift nil {:alone :!S9 :held :left_shift} ]
-   ]}
+  ; {:des "left shift once -> ("
+  ;  :rules [
+  ;    [:##left_shift :left_shift nil {:alone :!S9 :held :left_shift} ]
+  ;  ]}
 
-  {:des "right shift once -> )"
-   :rules [
-     [:##right_shift :right_shift nil {:alone :!S0 :held :right_shift} ]
-   ]}
+  ; {:des "right shift once -> )"
+  ;  :rules [
+  ;    [:##right_shift :right_shift nil {:alone :!S0 :held :right_shift} ]
+  ;  ]}
 
   {:des "caps lock once to escape of -> control"
    :rules [
@@ -133,5 +133,18 @@
   {:des "f-mode: firefox"
    :rules [:f-mode
     [:s [:as "firefox/new_tab"]]
+   ]}
+
+  {:des "ru layout"
+   :rules [
+     [:!O#St :backslash :ru] ; option + е -> ё
+     [:!O#Sm :close_bracket :ru] ; option + ь -> ъ
+     [:##grave_accent_and_tilde :period :ru] ; ] -> ю
+     [:comma :!S6 :ru] ; б -> ,
+     [:!Scomma :!Snon_us_backslash :ru] ; shift + б -> <
+     [:##slash :comma :ru] ; / -> б
+     [:period :!S7 :ru] ; ю -> .
+     [:!Speriod :non_us_backslash :ru] ; shift + ю -> >
+     [:!S7 :!Sslash :ru] ; shift + 7 -> ?
    ]}
 ]}
