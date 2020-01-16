@@ -17,5 +17,5 @@ ln -sf $PWD/karabiner/karabiner.edn ~/.config/karabiner.edn
 echo "Update Karabiner config: "
 goku
 
-#applescripts
+# applescripts
 ln -sf $PWD/applescript ~/.applescript

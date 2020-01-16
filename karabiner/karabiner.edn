@@ -23,7 +23,7 @@
 }
 
 :input-sources {
-  :us {:input_source_id "com.apple.keylayout.ABC"
+  :en {:input_source_id "com.apple.keylayout.ABC"
        :language "en"}
   :ru {:input_source_id "com.apple.keylayout.Russian"
        :language "ru"}}
@@ -105,24 +105,16 @@
      [:!To :return_or_enter]
    ]}
 
-  {:des "option+a -> ä"
+  {:des "umlauts"
    :rules [
-     [:!Oa [:!Ou :a]]
-   ]}
-
-  {:des "option+o -> ö"
-   :rules [
-     [:!Oo [:!Ou :o]]
-   ]}
-
-  {:des "option+u -> ü"
-   :rules [
-     [:!Ou [:!Ou :u]]
+     [:!Oa [:!Ou :a]] ; option+a -> ä
+     [:!Oo [:!Ou :o]] ; option+o -> ö
+     [:!Ou [:!Ou :u]] ; option+u -> ü
    ]}
 
   {:des "left cmd -> en layout"
    :rules [
-     [:left_gui :left_gui nil {:alone {:input :us}}]
+     [:left_gui :left_gui nil {:alone {:input :en}}]
    ]}
 
   {:des "right cmd -> ru layout"
@@ -135,6 +127,45 @@
     [:s [:as "firefox/new_tab"]]
    ]}
 
+  {:des "numbers <-> symbols"
+   :rules [
+     [:1 :!S1] ; 1 -> !
+     [:!S1 :1] ; shift + 1 -> 1
+
+     [:2 :!S2 :en] ; 2 -> @ [en]
+     [:2 :!O2 :ru] ; 2 -> @ [ru]
+     [:!S2 :2] ; shift + 2 -> 2
+
+     [:3 :!S3 :en] ; 3 -> # [en]
+     [:3 :!O3 :ru] ; 3 -> # [ru]
+     [:!S3 :3] ; shift + 3 -> 3
+
+     [:4 :semicolon :en] ; 4 -> ; [en]
+     [:4 :!S8 :ru] ; 4 -> ; [ru]
+     [:!S4 :4] ; shift + 4 -> 4
+
+     [:5 :!S5 :en] ; 5 -> % [en]
+     [:5 :!S4 :ru] ; 5 -> % [ru]
+     [:!S5 :5] ; shift + 5 -> 5
+
+     [:6 :!Ssemicolon :en] ; 6 -> : [en]
+     [:6 :!S5 :ru] ; 6 -> : [ru]
+     [:!S6 :6] ; shift + 6 -> 6
+
+     [:7 :!Sslash] ; 7 -> ?
+     [:!S7 :7] ; shift + 7 -> 7
+
+     [:8 :!S8 :en] ; 8 -> * [en]
+     [:8 :!O8 :ru] ; 8 -> * [ru]
+     [:!S8 :8] ; shift + 8 -> 8
+
+     [:9 :!S9] ; 9 -> (
+     [:!S9 :9] ; shift + 9 -> 9
+
+     [:0 :!S0] ; 0 -> )
+     [:!S0 :0] ; shift + 0 -> 0
+   ]}
+
   {:des "ru layout"
    :rules [
      [:!O#St :backslash :ru] ; option + е -> ё
@@ -145,6 +176,19 @@
      [:##slash :comma :ru] ; / -> б
      [:period :!S7 :ru] ; ю -> .
      [:!Speriod :non_us_backslash :ru] ; shift + ю -> >
-     [:!S7 :!Sslash :ru] ; shift + 7 -> ?
+     [:backslash :!S2 :ru] ; \ -> "
+     [:!S#Cbackslash :slash :ru] ; shift + \ -> /
+   ]}
+
+  {:des "en layout"
+   :rules [
+     [:semicolon :!S4 :en] ; ; -> $
+     [:!Ssemicolon :backslash :en] ; shift + ; -> \
+     [:quote :!S6 :en] ; ' -> ^
+     [:!Squote :!Sbackslash :en] ; shift + ' -> |
+     [:slash :!S7 :en] ; / -> &
+     [:!Sslash :quote :en] ; shift + / -> '
+     [:backslash :!Squote :en] ; \ -> "
+     [:!S#Cbackslash :slash :en] ; shift + \ -> /
    ]}
 ]}
