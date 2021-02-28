@@ -13,9 +13,6 @@ fi
 if ! test -x "$(command -v goku)"; then
   brew install yqrashawn/goku/goku
 fi
-ln -sf $PWD/karabiner/karabiner.edn ~/.config/karabiner.edn
+ln -sf $PWD/karabiner.edn ~/.config/karabiner.edn
 echo "Update Karabiner config: "
 goku
-
-# applescripts
-ln -sf $PWD/applescript ~/.applescript

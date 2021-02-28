@@ -1,0 +1,72 @@
+; https://github.com/yqrashawn/GokuRakuJoudo
+
+{
+
+:simlayer-threshold 5000
+
+:templates {
+  :open "open \"%s\""
+}
+
+:applications {
+  :terminal ["^com\\.apple\\.Terminal$"]
+}
+
+:simlayers {
+  :o-mode {:key :o}
+  :semicolon-mode {:key :semicolon}
+}
+
+:input-sources {
+  :en {:input_source_id "com.apple.keylayout.ABC"
+       :language "en"}
+  :ru {:input_source_id "com.apple.keylayout.Russian"
+       :language "ru"}}
+
+:main [
+  {:des "caps lock once to escape of -> control"
+   :rules [
+     [:caps_lock :left_control nil {:alone :escape}]
+   ]}
+
+  {:des "o-mode: quick open"
+   :rules [:o-mode
+    [:c [:open "/Applications/Visual Studio Code.app"]]
+    [:t [:open "/Applications/Utilities/Terminal.app"]]
+    [:d [:open "/Applications/Discord.app"]]
+    [:a [:open "/Applications/Anki.app"]]
+    [:w [:open "/Applications/WhatsApp.app"]]
+   ]}
+
+  {:des "emacs navigation"
+   :rules [
+    [:!Tn :down_arrow [:!terminal :!emacs]]
+    [:!Tp :up_arrow [:!terminal :!emacs]]
+    [:!Tb :left_arrow [:!terminal :!emacs]]
+    [:!Tf :right_arrow [:!terminal :!emacs]]
+   ]}
+
+
+  {:des "ctrl+o -> enter"
+   :rules [
+     [:!To :return_or_enter]
+   ]}
+
+  {:des "umlauts"
+   :rules [
+     [:!Ea [:!Ou :a]] ; option+a -> ä
+     [:!Oo [:!Ou :o]] ; option+o -> ö
+     [:!Ou [:!Ou :u]] ; option+u -> ü
+   ]}
+
+  {:des "left cmd -> en layout"
+   :rules [
+     [:left_gui :left_gui nil {:alone {:input :en}}]
+   ]}
+
+  {:des "right cmd -> ru layout"
+   :rules [
+     [:right_gui :right_gui nil {:alone {:input :ru}}]
+   ]}
+
+]}
