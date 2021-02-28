@@ -31,21 +31,14 @@
 
   {:des "o-mode: quick open"
    :rules [:o-mode
-    [:c [:open "/Applications/Visual Studio Code.app"]]
+    [:s [:open "/Applications/Safari.app"]]
+    [:v [:open "/Applications/Visual Studio Code.app"]]
     [:t [:open "/Applications/Utilities/Terminal.app"]]
     [:d [:open "/Applications/Discord.app"]]
     [:a [:open "/Applications/Anki.app"]]
     [:w [:open "/Applications/WhatsApp.app"]]
+    [:g [:open "/Applications/Godot.app"]]
    ]}
-
-  {:des "emacs navigation"
-   :rules [
-    [:!Tn :down_arrow [:!terminal :!emacs]]
-    [:!Tp :up_arrow [:!terminal :!emacs]]
-    [:!Tb :left_arrow [:!terminal :!emacs]]
-    [:!Tf :right_arrow [:!terminal :!emacs]]
-   ]}
-
 
   {:des "ctrl+o -> enter"
    :rules [
